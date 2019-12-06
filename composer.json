@@ -1,0 +1,32 @@
+{
+    "name": "ksv2005/difference-calculator",
+    "bin": [
+
+    ],
+    "type": "project",
+    "authors": [
+      {
+        "name": "Sergey Kochegarov",
+        "email": "ksv2005@mail.ru"
+      }
+    ],
+    "description": "difference-calculator php-package",
+    "keywords": [
+      "difference-calculator"
+    ],
+    "license": "MIT",
+    "require-dev": {
+      "docopt/docopt": "^1.0"
+    },
+    "autoload": {
+        "files": [
+
+        ]
+    },
+    "scripts": {
+      "phpcs": "phpcs"
+    },
+    "require": {
+        "docopt/docopt": "^1.0"
+    }
+}

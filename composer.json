@@ -16,7 +16,6 @@
     ],
     "license": "MIT",
     "require-dev": {
-      "docopt/docopt": "^1.0",
       "squizlabs/php_codesniffer": "^3.0@dev"
     },
     "autoload": {

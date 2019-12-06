@@ -1,7 +1,7 @@
 {
     "name": "ksv2005/difference-calculator",
     "bin": [
-
+      "bin/gendiff"
     ],
     "type": "project",
     "authors": [
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "files": [
-
+          "src/Engine.php"
         ]
     },
     "scripts": {

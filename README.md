@@ -5,3 +5,16 @@
 
 ##
 
+#### Установка через Composer
+composer global require ksv2005/difference-calculator
+
+---
+
+#### Проект Вычислитель отличий
+
+Проект #2 обучения на профессию "PHP-программист" от [Hexlet](https://ru.hexlet.io/)
+
+---
+
+#### gendiff before.json after.json
+[![asciicast](https://asciinema.org/a/wUtZW13s6DEHT9ao38tzNUvwY.svg)](https://asciinema.org/a/wUtZW13s6DEHT9ao38tzNUvwY)

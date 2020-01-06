@@ -37,14 +37,18 @@ function genDiff($pathToFile1, $pathToFile2)
     $diff = diffArray(getFromJson($pathToFile1), getFromJson($pathToFile2));
     $result = implode(array_map(function ($item) {
             return " {$item['diff']} {$item['key']}: {$item['value']}\n";
-        }, $diff));
+    }, $diff));
     return "{\n{$result}}";
 }
 
 function createAcc($diff, $key, $value)
 {
-    if ($value === true) $value = 'true';
-    if ($value === false) $value = 'false';
+    if ($value === true) {
+        $value = 'true';
+    }
+    if ($value === false) {
+        $value = 'false';
+    }
     return [
         'diff' => $diff,
         'key' => $key,
@@ -67,7 +71,7 @@ function diffArray($array1, $array2)
             }
         } elseif (array_key_exists($key, $array1)) {
             $acc[][] = createAcc('-', $key, $array1[$key]);
-        } elseif (array_key_exists($key, $array2)){
+        } elseif (array_key_exists($key, $array2)) {
             $acc[][] = createAcc('+', $key, $array2[$key]);
         }
 
@@ -79,8 +83,7 @@ function diffArray($array1, $array2)
 function getFromJson($pathToFile)
 {
     return json_decode(
-        file_get_contents(
-            file_exists($pathToFile) ? $pathToFile : getcwd() . '/' . $pathToFile),
-            True
+        file_get_contents(file_exists($pathToFile) ? $pathToFile : getcwd() . '/' . $pathToFile),
+        true
     );
 }

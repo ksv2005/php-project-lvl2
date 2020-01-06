@@ -27,6 +27,8 @@
       "phpcs": "phpcs"
     },
     "require": {
-        "docopt/docopt": "^1.0"
+        "docopt/docopt": "^1.0",
+        "ext-json": "*",
+        "funct/funct": "^1.5"
     }
 }

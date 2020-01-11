@@ -90,5 +90,5 @@ function getFromJson($pathToFile)
 
 function name()
 {
-    return True;
+    return true;
 }

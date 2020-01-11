@@ -87,3 +87,8 @@ function getFromJson($pathToFile)
         true
     );
 }
+
+function name()
+{
+    return True;
+}

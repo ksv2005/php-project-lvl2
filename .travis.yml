@@ -8,3 +8,5 @@ install:
 script:
   - make lint
   - make test
+
+after_script: ./codeclimate.sh

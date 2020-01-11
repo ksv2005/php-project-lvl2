@@ -9,10 +9,10 @@ script:
   - make lint
   - make test
 
-addons:
-  code_climate:
-    repo_token:
-      secure: "WRQQM9ezw1VFiqm9pfcA16jjVybvDPOV4bl3VnLzJnSuMBPxpB8N3/g4J2c/R+5sCdgknXsDeb4hk+wkQnVz/qLud1UqAOX3LnLw8Bj3ZfQS0cxH7y6msidUNOhLSWd2ilii464wl0fHTEgnCXBJSVknqJSUOwIuKVxRGbQAh3YWoGco5Z7ByeK6Uho6KibJWhXbh3BHZ6M0RJyJIWH8wVednmKBlhlXuU/0HC3vLdgmixNhp4rsldnv9LPtkOKKYAAQ9gW7uXQhNOtS0G58KTNCXEgLFSyxUu9DwCz01BJAXpnYe4D3RBFvxBATKVkCMwEkT71kFMXnMvaTEdf/zv+C3WuxVypG6Ovfpm7zbWANluGKGf9k+Ny64aj6Gf3tZOj6Mt39rYJ3we0USqzQXM6RXuNimMrVAXNQkGCFPezchmy1xamYyEQ1RUt45J/ZsKZcgn7ZLq8ifONSTDz7yP7k7W6FispYVhGVJAow+ZT/qQmXVIny+O2+5ASIPVuUfgrttQJZz9pc2qwsAwOQD2nAJwbNg9oHqjVaY3rIRNcsC/YLGFsAfnbQ2hjUbPk5+6Gm684jVPFwm92c3SXjj/GAs+Svz/2huyAHqUDegLHXiyycB69WjzErFsBO04vikt4KjMpmQ5jhK5Ozel/BKE4kN8XLa6aiNlB94MUVJmw="
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 after_script:
-  - vendor/bin/test-reporter
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

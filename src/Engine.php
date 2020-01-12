@@ -34,9 +34,11 @@ DOCOPT;
 
 function genDiff($pathToFile1, $pathToFile2)
 {
-    $diff = diffArray(getFromJson($pathToFile1), getFromJson($pathToFile2));
+    $array1 = getFromJson($pathToFile1);
+    $array2 = getFromJson($pathToFile2);
+    $diff = diffArray($array1, $array2);
     $result = implode(array_map(function ($item) {
-            return " {$item['diff']} {$item['key']}: {$item['value']}\n";
+            return "  {$item['diff']} {$item['key']}: {$item['value']}\n";
     }, $diff));
     return "{\n{$result}}";
 }

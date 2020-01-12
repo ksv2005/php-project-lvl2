@@ -4,6 +4,7 @@ namespace Differ;
 
 use Docopt;
 use Funct;
+use Symfony\Component\Yaml\Yaml;
 
 function run()
 {
@@ -34,8 +35,12 @@ DOCOPT;
 
 function genDiff($pathToFile1, $pathToFile2)
 {
-    $array1 = getFromJson($pathToFile1);
-    $array2 = getFromJson($pathToFile2);
+    if (pathinfo($pathToFile1)['extension'] == 'json') {
+        [$array1, $array2] = [getFromJson($pathToFile1), getFromJson($pathToFile2)];
+    }
+    if (pathinfo($pathToFile1)['extension'] == 'yml') {
+        [$array1, $array2] = [getFromYaml($pathToFile1), getFromYaml($pathToFile2)];
+    }
     $diff = diffArray($array1, $array2);
     $result = implode(array_map(function ($item) {
             return "  {$item['diff']} {$item['key']}: {$item['value']}\n";
@@ -84,8 +89,15 @@ function diffArray($array1, $array2)
 
 function getFromJson($pathToFile)
 {
-    return json_decode(
-        file_get_contents(file_exists($pathToFile) ? $pathToFile : getcwd() . '/' . $pathToFile),
-        true
-    );
+    return json_decode(file_get_contents(getPath($pathToFile)), true);
+}
+
+function getFromYaml($pathToFile)
+{
+    return Yaml::parseFile(getPath($pathToFile));
+}
+
+function getPath($path)
+{
+    return file_exists($path) ? $path : getcwd() . '/' . $path;
 }

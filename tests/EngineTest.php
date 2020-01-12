@@ -10,10 +10,14 @@ class EngineTest extends TestCase
 {
     public function testGenDiff()
     {
-        $pathBefore = __DIR__ . "/fixtures/before.json";
-        $pathAfter = __DIR__ . "/fixtures/after.json";
-        $resultTrue = file_get_contents(__DIR__ . "/fixtures/result.true.json");
-        $diff = \Differ\genDiff($pathBefore, $pathAfter);
-        $this->assertEquals($resultTrue, $diff);
+        $pathBeforeJson = __DIR__ . "/fixtures/before.json";
+        $pathAfterJson = __DIR__ . "/fixtures/after.json";
+        $pathBeforeYaml = __DIR__ . "/fixtures/before.yml";
+        $pathAfterYaml = __DIR__ . "/fixtures/after.yml";
+        $resultTrue = file_get_contents(__DIR__ . "/fixtures/result.true");
+        $diffJson = \Differ\genDiff($pathBeforeJson, $pathAfterJson);
+        $diffYaml = \Differ\genDiff($pathBeforeYaml, $pathAfterYaml);
+        $this->assertEquals($resultTrue, $diffJson);
+        $this->assertEquals($resultTrue, $diffYaml);
     }
 }

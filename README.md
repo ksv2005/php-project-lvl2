@@ -18,4 +18,5 @@ composer global require ksv2005/difference-calculator
 ---
 
 #### gendiff before.json after.json
-[![asciicast](https://asciinema.org/a/wUtZW13s6DEHT9ao38tzNUvwY.svg)](https://asciinema.org/a/wUtZW13s6DEHT9ao38tzNUvwY)
+#### gendiff before.yml after.yml
+[![asciicast](https://asciinema.org/a/l7DSS8QqzmcMSgulChE5YLEJB.svg)](https://asciinema.org/a/l7DSS8QqzmcMSgulChE5YLEJB)

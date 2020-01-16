@@ -3,21 +3,25 @@
 namespace App\Tests;
 
 use PHPUnit\Framework\TestCase;
-
-require_once("src/Engine.php");
+use function DifferenceCalculator\Differ\genDiff;
 
 class EngineTest extends TestCase
 {
-    public function testGenDiff()
+    public function testDiffJson()
     {
-        $pathBeforeJson = __DIR__ . "/fixtures/before.json";
-        $pathAfterJson = __DIR__ . "/fixtures/after.json";
-        $pathBeforeYaml = __DIR__ . "/fixtures/before.yml";
-        $pathAfterYaml = __DIR__ . "/fixtures/after.yml";
+        $pathBefore = __DIR__ . "/fixtures/before.json";
+        $pathAfter = __DIR__ . "/fixtures/after.json";
         $resultTrue = file_get_contents(__DIR__ . "/fixtures/result.true");
-        $diffJson = \Differ\genDiff($pathBeforeJson, $pathAfterJson);
-        $diffYaml = \Differ\genDiff($pathBeforeYaml, $pathAfterYaml);
-        $this->assertEquals($resultTrue, $diffJson);
-        $this->assertEquals($resultTrue, $diffYaml);
+        $diff = genDiff($pathBefore, $pathAfter);
+        $this->assertEquals($resultTrue, $diff);
+    }
+
+    public function testDiffYaml()
+    {
+        $pathBefore = __DIR__ . "/fixtures/before.yml";
+        $pathAfter = __DIR__ . "/fixtures/after.yml";
+        $resultTrue = file_get_contents(__DIR__ . "/fixtures/result.true");
+        $diff = genDiff($pathBefore, $pathAfter);
+        $this->assertEquals($resultTrue, $diff);
     }
 }

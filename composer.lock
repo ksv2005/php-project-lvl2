@@ -280,16 +280,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149"
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/62e8fc2dc550e5d6d8c9360c7721662670f58149",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +332,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-12-11T14:44:42+00:00"
+            "time": "2020-01-13T10:02:55+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -2085,12 +2085,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "b477a41ac565dad7a01c8b42f4804280723ad02f"
+                "reference": "bb50f790f17a431f8cf294274081a723bf376878"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b477a41ac565dad7a01c8b42f4804280723ad02f",
-                "reference": "b477a41ac565dad7a01c8b42f4804280723ad02f",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/bb50f790f17a431f8cf294274081a723bf376878",
+                "reference": "bb50f790f17a431f8cf294274081a723bf376878",
                 "shasum": ""
             },
             "require": {
@@ -2128,7 +2128,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2020-01-10T04:04:04+00:00"
+            "time": "2020-01-14T22:43:20+00:00"
         },
         {
             "name": "symfony/config",

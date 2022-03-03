@@ -5,7 +5,9 @@
         "psr-4": {
             "Hexlet\\Code\\": "src/"
         },
-        "files": []
+        "files": [
+            "src/Differ.php"
+        ]
     },
     "require": {
         "docopt/docopt": "^1.0",

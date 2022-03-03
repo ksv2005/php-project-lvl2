@@ -5,8 +5,12 @@ namespace Differ\Differ;
 
 function genDiff($file1, $file2)
 {
-    $file1 = __DIR__ . "/$file1";
-    $file2 = __DIR__ . "/$file2";
+    if (!str_contains("/", $file1)) {
+        $file1 = __DIR__ . "/$file1";
+    }
+    if (!str_contains("/", $file2)) {
+        $file2 = __DIR__ . "/$file2";
+    }
     $first_data = (array)json_decode(file_get_contents("$file1"));
     $second_data = (array)json_decode(file_get_contents("$file2"));
 

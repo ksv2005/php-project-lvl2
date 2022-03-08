@@ -5,26 +5,26 @@ namespace Differ\Differ;
 
 function genDiff($file1, $file2)
 {
-    if (!str_contains("/", $file1)) {
-        $file1 = __DIR__ . "/$file1";
-    }
-    if (!str_contains("/", $file2)) {
-        $file2 = __DIR__ . "/$file2";
-    }
-    $first_data = (array)json_decode(file_get_contents("$file1"));
-    $second_data = (array)json_decode(file_get_contents("$file2"));
+    $first_data = (array)json_decode(file_get_contents(pathinfo($file1)["basename"]));
+    $second_data = (array)json_decode(file_get_contents(pathinfo($file2)["basename"]));
 
+    return parse($first_data, $second_data);
+}
+
+
+function parse($firstData, $secondData)
+{
     $resultChanges = [];
 
-    foreach ($first_data as $key => $value) {
-        if (!key_exists($key, $second_data) or $second_data[$key] !== $value) {
+    foreach ($firstData as $key => $value) {
+        if (!key_exists($key, $secondData) or $secondData[$key] !== $value) {
             $resultChanges[] = [$key, $value, "-"];
         } else {
             $resultChanges[] = [$key, $value, " "];
         }
     }
 
-    $addedArray = array_diff($second_data, $first_data);
+    $addedArray = array_diff($secondData, $firstData);
     foreach ($addedArray as $key => $value) {
         $resultChanges[] = [$key, $value, "+"];
     }

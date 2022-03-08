@@ -1,15 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
-use function Differ\Differ\genDiff;
-
-
-$pathToFile1 = "file1.json";
-$pathToFile2 = "file2.json";
-
-$diff = genDiff($pathToFile1, $pathToFile2);
-print_r($diff);
+Differ\Cli\run();
